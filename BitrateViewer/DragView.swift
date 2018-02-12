@@ -37,6 +37,7 @@ class DragView: NSView {
 
         if pasteboard.types?.contains(.fileURL) == true {
             let files = pasteboard.readObjects(forClasses: [NSURL.self]) as! [URL]
+            //            let file = URL(string: pasteboard.propertyList(forType: .fileURL) as! String)
 
             if supportedFileTypes.contains((files.first?.pathExtension.lowercased())!) {
                 delegate?.dragged(with: files.first!)

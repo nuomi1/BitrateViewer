@@ -18,8 +18,6 @@
 		312B9F991FADB9F200B3A303 /* VideoAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312B9F981FADB9F200B3A303 /* VideoAnalyzer.swift */; };
 		312B9FA61FB5821900B3A303 /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312B9FA51FB5821900B3A303 /* Stream.swift */; };
 		313F6D8420304CC3006B2DAF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3122C1021FAC9DD200C111F6 /* HomeViewController.swift */; };
-		31649648202456320025ECF6 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312B9DF31FADA4BF00B3A303 /* Charts.framework */; };
-		31649649202456D70025ECF6 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312B9DF31FADA4BF00B3A303 /* Charts.framework */; };
 		3164964A202456D70025ECF6 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 312B9DF31FADA4BF00B3A303 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		317D8F21203068C3004EE416 /* DragView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317D8F20203068C3004EE416 /* DragView.swift */; };
 /* End PBXBuildFile section */
@@ -83,8 +81,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31649648202456320025ECF6 /* Charts.framework in Frameworks */,
-				31649649202456D70025ECF6 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

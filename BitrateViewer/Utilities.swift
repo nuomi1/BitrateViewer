@@ -3,34 +3,10 @@
 //  BitrateViewer
 //
 //  Created by nuomi on 2017/11/3.
-//  Copyright © 2017年 nuomi1. All rights reserved.
+//  Copyright © 2018年 nuomi1. All rights reserved.
 //
 
 import AppKit.NSAlert
-import CoreMedia.CMTime
-
-extension CMTime: CustomStringConvertible {
-    public var description: String {
-        let seconds = CMTimeGetSeconds(self)
-
-        let hour = Int(seconds / 3600)
-        let minute = Int(seconds % 3600 / 60)
-        let second = Int(seconds % 60)
-        let millisecond = Int(seconds * 1000 % 1000)
-
-        if hour > 0 {
-            return String(format: "%i:%02i:%02i:%03i", hour, minute, second, millisecond)
-        } else {
-            return String(format: "%02i:%02i:%03i", minute, second, millisecond)
-        }
-    }
-}
-
-extension Float64 {
-    static func % (lhs: Float64, rhs: Float64) -> Float64 {
-        return lhs.truncatingRemainder(dividingBy: rhs)
-    }
-}
 
 //    private func getFFprobePath() -> String? {
 //        let task = Process()
@@ -99,3 +75,10 @@ let supportedFileTypes = [
     "avi", "f4v", "flv", "m2ts", "m4v", "mkv", "mov", "mp4", "mpeg", "mpg",
     "qt", "rm", "rmvb", "ts", "vob", "webm", "wmv",
 ]
+
+let kInfo = "Info"
+let kCursor = "Curosr"
+let kLabel = "Label"
+let kSecond = "Second"
+let kGOP = "GOP"
+let kFrame = "Frame"

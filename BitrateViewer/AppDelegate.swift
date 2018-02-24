@@ -3,7 +3,7 @@
 //  BitrateViewer
 //
 //  Created by nuomi on 2017/11/3.
-//  Copyright © 2017年 nuomi1. All rights reserved.
+//  Copyright © 2018年 nuomi1. All rights reserved.
 //
 
 import Cocoa
@@ -11,16 +11,16 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_: Notification) {
-        open(nil)
+        openDocument(nil)
     }
 
-    @IBAction func open(_: Any?) {
+    @IBAction func openDocument(_: Any?) {
         let openPanel = NSOpenPanel()
         openPanel.allowedFileTypes = supportedFileTypes
 
         let modal = openPanel.runModal()
         if modal == .OK {
-            guard let file = openPanel.url, let main = NSApp.mainWindow?.contentViewController as! HomeViewController? else {
+            guard let file = openPanel.url, let main = NSApp.mainWindow?.contentViewController as! MainViewController? else {
                 return
             }
 

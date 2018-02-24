@@ -3,7 +3,7 @@
 //  BitrateViewerUITests
 //
 //  Created by nuomi on 2017/11/3.
-//  Copyright © 2017年 nuomi1. All rights reserved.
+//  Copyright © 2018年 nuomi1. All rights reserved.
 //
 
 import XCTest

@@ -104,6 +104,9 @@ class MainViewController: NSViewController {
         cursorTableView.addTableColumn(NSTableColumn(identifier: NSUserInterfaceItemIdentifier(kCursor + "." + kInfo)))
 
         modeButton.addItems(withTitles: [kSecond, kGOP, kFrame])
+        modeButton.item(withTitle: kSecond)?.keyEquivalent = "s"
+        modeButton.item(withTitle: kGOP)?.keyEquivalent = "g"
+        modeButton.item(withTitle: kFrame)?.keyEquivalent = "f"
         modeButton.selectItem(withTitle: kFrame)
         _ = modeButton.rx.tap.bind {
             if let title = self.modeButton.selectedItem?.title {

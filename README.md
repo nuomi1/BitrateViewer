@@ -12,17 +12,19 @@
 - Xcode 9.2
 - Swift 4.0.3
 
-## Snapshot
+## Screenshot
 
-![Second](Assets/Second.png)
+![Second](Screenshots/Second.png)
 
-![GOP](Assets/GOP.png)
+![GOP](Screenshots/GOP.png)
 
-![Frame](Assets/Frame.png)
+![Frame](Screenshots/Frame.png)
 
 ## Thanks
 
 - [Bitrate Viewer](http://www.winhoros.de/docs/bitrate-viewer/)
 - [BitrateViewer](https://github.com/galad87/BitrateViewer)
 - [Charts](https://github.com/danielgindi/Charts)
+- [SnapKit](https://github.com/SnapKit/SnapKit)
+- [RxSwift](https://github.com/ReactiveX/RxSwift)
 - [FFmpeg](https://ffmpeg.org/)

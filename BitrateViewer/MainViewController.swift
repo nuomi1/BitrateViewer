@@ -222,7 +222,7 @@ extension MainViewController: NSTableViewDataSource {
         }
 
         var value: Any?
-        let isLabel = identifier.rawValue.split(separator: ".").contains("Label")
+        let isLabel = identifier.rawValue.split(separator: ".").contains(Substring(kLabel))
 
         if tableView == infoTableView {
             value = isLabel ? infoDataSource[2 * row] : infoDataSource[2 * row + 1]
@@ -242,7 +242,7 @@ extension MainViewController: NSTableViewDelegate {
         }
 
         var view = tableView.makeView(withIdentifier: identifier, owner: self)
-        let isLabel = identifier.rawValue.split(separator: ".").contains("Label")
+        let isLabel = identifier.rawValue.split(separator: ".").contains(Substring(kLabel))
 
         if row == 0 {
             view = isLabel ? NSTextField.cTiTle : nil

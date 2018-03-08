@@ -120,7 +120,7 @@ extension VideoAnalyzer {
 
         analyze(for: file)
 
-        guard let data = try? Data(contentsOf: file.appendingPathExtension("json")), let json = try? JSONDecoder().decode(VideoFile.self, from: data) else {
+        guard let data = try? Data(contentsOf: file.appendingPathExtension(kjson)), let json = try? JSONDecoder().decode(VideoFile.self, from: data) else {
             return
         }
 

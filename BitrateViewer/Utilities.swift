@@ -29,7 +29,7 @@ import AppKit.NSAlert
 func analyze(for file: URL) {
     let fileManager = FileManager.default
 
-    guard !fileManager.fileExists(atPath: file.path + ".json") else {
+    guard !fileManager.fileExists(atPath: file.appendingPathExtension(kjson).path) else {
         return
     }
 
@@ -68,7 +68,7 @@ func analyze(for file: URL) {
     task.waitUntilExit()
 
     let pipeData = stdout.fileHandleForReading.readDataToEndOfFile()
-    fileManager.createFile(atPath: file.path + ".json", contents: pipeData)
+    fileManager.createFile(atPath: file.appendingPathExtension(kjson).path, contents: pipeData)
 }
 
 let supportedFileTypes = [
@@ -82,3 +82,4 @@ let kLabel = "Label"
 let kSecond = "Second"
 let kGOP = "GOP"
 let kFrame = "Frame"
+let kjson = "json"

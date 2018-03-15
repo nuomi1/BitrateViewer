@@ -17,16 +17,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func openDocument(_: Any?) {
         let openPanel = NSOpenPanel()
         openPanel.allowedFileTypes = supportedFileTypes
+        openPanel.treatsFilePackagesAsDirectories = true // 不处理会把含有后缀名的文件夹当做文件
 
-        let modal = openPanel.runModal()
-        if modal == .OK {
-            guard let file = openPanel.url, let main = NSApp.mainWindow?.contentViewController as! MainViewController? else {
-                return
+        openPanel.begin {
+            switch $0 {
+            case .OK:
+                guard let file = openPanel.url, let main = NSApp.mainWindow?.contentViewController as! MainViewController? else {
+                    return
+                }
+
+                main.open(with: file)
+            default:
+                exit(EXIT_FAILURE)
             }
-
-            main.open(with: file)
-        } else {
-            exit(EXIT_FAILURE)
         }
     }
 }

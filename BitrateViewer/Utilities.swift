@@ -64,16 +64,18 @@ func analyze(for file: URL) {
     let stdout = Pipe()
     task.standardOutput = stdout
 
-    task.launch()
-    task.waitUntilExit()
+    do {
+        try task.run()
+    } catch let error {
+        print(error)
+    }
 
     let pipeData = stdout.fileHandleForReading.readDataToEndOfFile()
     fileManager.createFile(atPath: file.appendingPathExtension(kjson).path, contents: pipeData)
 }
 
 let supportedFileTypes = [
-    "avi", "f4v", "flv", "m2ts", "m4v", "mkv", "mov", "mp4", "mpeg", "mpg",
-    "qt", "rm", "rmvb", "ts", "vob", "webm", "wmv",
+    "mp4",
 ]
 
 let kInfo = "Info"

@@ -35,11 +35,11 @@ class DragView: NSView {
     override func performDragOperation(_ sender: NSDraggingInfo) -> Bool {
         let pasteboard = sender.draggingPasteboard()
 
-        if pasteboard.types?.contains(.fileURL) == true {
+        if pasteboard.types!.contains(.fileURL) {
             let files = pasteboard.readObjects(forClasses: [NSURL.self]) as! [URL]
             //            let file = URL(string: pasteboard.propertyList(forType: .fileURL) as! String)
 
-            if supportedFileTypes.contains((files.first?.pathExtension.lowercased())!) {
+            if supportedFileTypes.contains(files.first!.pathExtension.lowercased()) {
                 delegate?.dragged(with: files.first!)
                 return true
             }

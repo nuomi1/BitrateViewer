@@ -45,12 +45,6 @@ struct Stream: Decodable {
      */
     let bitRate: Int
 
-    /**
-     - SeeAlso:
-     [int64_t AVStream::nb_frames](https://ffmpeg.org/doxygen/trunk/structAVStream.html#a4382c3064df1c9eb232ac198dec067f9)
-     */
-    let frames: Int
-
     private enum CodingKeys: String, CodingKey {
         case width
         case height
@@ -58,7 +52,6 @@ struct Stream: Decodable {
         case timeScale = "time_base"
         case duration = "duration_ts"
         case bitRate = "bit_rate"
-        case frames = "nb_frames"
     }
 }
 
@@ -69,15 +62,17 @@ extension Stream {
         width = try container.decode(Int.self, forKey: .width)
         height = try container.decode(Int.self, forKey: .height)
         bitRate = Int(try container.decode(String.self, forKey: .bitRate))!
-        frames = Int(try container.decode(String.self, forKey: .frames))!
 
-        let _frameRate = try container.decode(String.self, forKey: .frameRate).split(separator: "/").map { Int($0) }
-        frameRate = Double(_frameRate[0]! / _frameRate[1]!)
+        let _frameRate = try container.decode(String.self, forKey: .frameRate).split(separator: "/").flatMap { Int($0) }
+        frameRate = Double(_frameRate.first! / _frameRate.last!)
 
-        let _timeScale = try container.decode(String.self, forKey: .timeScale).split(separator: "/").map { Int($0) }
-        timeScale = CMTimeScale(_timeScale[1]!)
+        let _timeScale = try container.decode(String.self, forKey: .timeScale).split(separator: "/").flatMap { Int($0) }
+        timeScale = CMTimeScale(_timeScale.last!)
 
-        let _duration = try container.decode(CMTimeValue.self, forKey: .duration)
-        duration = CMTime(value: _duration, timescale: timeScale)
+        if let _duration = try container.decodeIfPresent(CMTimeValue.self, forKey: .duration) {
+            duration = CMTime(value: _duration, timescale: timeScale)
+        } else {
+            duration = CMTime(value: 0, timescale: 0)
+        }
     }
 }

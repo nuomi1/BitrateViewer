@@ -41,15 +41,19 @@ class VideoAnalyzer {
     }
 
     var duration: CMTime {
-        return stream.duration
+        if stream.duration.isValid {
+            return stream.duration
+        }
+
+        return CMTime(value: frames.last!.timeStamp + frames.last!.duration, timescale: timeScale)
     }
 
     private var minSize: Int {
-        return (samples.min()?.size)!
+        return samples.min()!.size
     }
 
     private var maxSize: Int {
-        return (samples.max()?.size)!
+        return samples.max()!.size
     }
 
     var minBitrate: Int {
@@ -73,7 +77,7 @@ class VideoAnalyzer {
     }
 
     var count: Int {
-        return stream.frames
+        return frames.count
     }
 
     func change(to mode: AnalyzeMode) {

@@ -68,7 +68,7 @@ extension Sample {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         timeStamp = try container.decode(CMTimeValue.self, forKey: .timeStamp)
-        duration = try container.decode(CMTimeValue.self, forKey: .duration)
+        duration = try container.decodeIfPresent(CMTimeValue.self, forKey: .duration) ?? 0
         size = Int(try container.decode(String.self, forKey: .size))!
         type = try container.decode(PictureType.self, forKey: .type)
     }

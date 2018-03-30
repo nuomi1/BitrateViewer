@@ -63,10 +63,10 @@ extension Stream {
         height = try container.decode(Int.self, forKey: .height)
         bitRate = Int(try container.decode(String.self, forKey: .bitRate))!
 
-        let _frameRate = try container.decode(String.self, forKey: .frameRate).split(separator: "/").flatMap { Int($0) }
+        let _frameRate = try container.decode(String.self, forKey: .frameRate).split(separator: "/").compactMap { Int($0) }
         frameRate = Double(_frameRate.first! / _frameRate.last!)
 
-        let _timeScale = try container.decode(String.self, forKey: .timeScale).split(separator: "/").flatMap { Int($0) }
+        let _timeScale = try container.decode(String.self, forKey: .timeScale).split(separator: "/").compactMap { Int($0) }
         timeScale = CMTimeScale(_timeScale.last!)
 
         if let _duration = try container.decodeIfPresent(CMTimeValue.self, forKey: .duration) {

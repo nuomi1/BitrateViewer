@@ -18,18 +18,14 @@
 		312B9FA61FB5821900B3A303 /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312B9FA51FB5821900B3A303 /* Stream.swift */; };
 		313F6D8420304CC3006B2DAF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3122C1021FAC9DD200C111F6 /* MainViewController.swift */; };
 		317D8F21203068C3004EE416 /* DragView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317D8F20203068C3004EE416 /* DragView.swift */; };
+		31A19A612073D63F00CF1F3B /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A19A5D2073D63F00CF1F3B /* Charts.framework */; };
+		31A19A622073D63F00CF1F3B /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A19A5E2073D63F00CF1F3B /* RxCocoa.framework */; };
+		31A19A632073D63F00CF1F3B /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A19A5F2073D63F00CF1F3B /* SnapKit.framework */; };
+		31A19A642073D63F00CF1F3B /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A19A602073D63F00CF1F3B /* RxSwift.framework */; };
 		31B2453420418E9D001D8ABE /* NSTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B2453020418E9D001D8ABE /* NSTableView.swift */; };
 		31B2453520418E9D001D8ABE /* Float64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B2453120418E9D001D8ABE /* Float64.swift */; };
 		31B2453620418E9D001D8ABE /* CMTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B2453220418E9D001D8ABE /* CMTime.swift */; };
 		31B2453720418E9D001D8ABE /* NSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B2453320418E9D001D8ABE /* NSTextField.swift */; };
-		31B24555204190DF001D8ABE /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B2453C20419051001D8ABE /* Charts.framework */; };
-		31B24556204190DF001D8ABE /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 31B2453C20419051001D8ABE /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		31B24558204190E3001D8ABE /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B2453D20419051001D8ABE /* RxCocoa.framework */; };
-		31B24559204190E3001D8ABE /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 31B2453D20419051001D8ABE /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		31B2455A204190E7001D8ABE /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B2453E20419051001D8ABE /* RxSwift.framework */; };
-		31B2455B204190E7001D8ABE /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 31B2453E20419051001D8ABE /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		31B2455C204190EA001D8ABE /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B2453F20419051001D8ABE /* SnapKit.framework */; };
-		31B2455D204190EA001D8ABE /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 31B2453F20419051001D8ABE /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		31B2456120419566001D8ABE /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B2456020419566001D8ABE /* Array.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,10 +53,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				31B24559204190E3001D8ABE /* RxCocoa.framework in Embed Frameworks */,
-				31B24556204190DF001D8ABE /* Charts.framework in Embed Frameworks */,
-				31B2455B204190E7001D8ABE /* RxSwift.framework in Embed Frameworks */,
-				31B2455D204190EA001D8ABE /* SnapKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,14 +78,14 @@
 		312B9F981FADB9F200B3A303 /* VideoAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoAnalyzer.swift; sourceTree = "<group>"; };
 		312B9FA51FB5821900B3A303 /* Stream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stream.swift; sourceTree = "<group>"; };
 		317D8F20203068C3004EE416 /* DragView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragView.swift; sourceTree = "<group>"; };
+		31A19A5D2073D63F00CF1F3B /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = ../../Carthage/Carthage/Build/Mac/Charts.framework; sourceTree = "<group>"; };
+		31A19A5E2073D63F00CF1F3B /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = ../../Carthage/Carthage/Build/Mac/RxCocoa.framework; sourceTree = "<group>"; };
+		31A19A5F2073D63F00CF1F3B /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = ../../Carthage/Carthage/Build/Mac/SnapKit.framework; sourceTree = "<group>"; };
+		31A19A602073D63F00CF1F3B /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = ../../Carthage/Carthage/Build/Mac/RxSwift.framework; sourceTree = "<group>"; };
 		31B2453020418E9D001D8ABE /* NSTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSTableView.swift; sourceTree = "<group>"; };
 		31B2453120418E9D001D8ABE /* Float64.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Float64.swift; sourceTree = "<group>"; };
 		31B2453220418E9D001D8ABE /* CMTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CMTime.swift; sourceTree = "<group>"; };
 		31B2453320418E9D001D8ABE /* NSTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSTextField.swift; sourceTree = "<group>"; };
-		31B2453C20419051001D8ABE /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/Mac/Charts.framework; sourceTree = "<group>"; };
-		31B2453D20419051001D8ABE /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/Mac/RxCocoa.framework; sourceTree = "<group>"; };
-		31B2453E20419051001D8ABE /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/Mac/RxSwift.framework; sourceTree = "<group>"; };
-		31B2453F20419051001D8ABE /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/Mac/SnapKit.framework; sourceTree = "<group>"; };
 		31B2456020419566001D8ABE /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,10 +94,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31B24558204190E3001D8ABE /* RxCocoa.framework in Frameworks */,
-				31B24555204190DF001D8ABE /* Charts.framework in Frameworks */,
-				31B2455A204190E7001D8ABE /* RxSwift.framework in Frameworks */,
-				31B2455C204190EA001D8ABE /* SnapKit.framework in Frameworks */,
+				31A19A612073D63F00CF1F3B /* Charts.framework in Frameworks */,
+				31A19A622073D63F00CF1F3B /* RxCocoa.framework in Frameworks */,
+				31A19A642073D63F00CF1F3B /* RxSwift.framework in Frameworks */,
+				31A19A632073D63F00CF1F3B /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,10 +177,10 @@
 		31649646202454780025ECF6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				31B2453C20419051001D8ABE /* Charts.framework */,
-				31B2453D20419051001D8ABE /* RxCocoa.framework */,
-				31B2453E20419051001D8ABE /* RxSwift.framework */,
-				31B2453F20419051001D8ABE /* SnapKit.framework */,
+				31A19A5D2073D63F00CF1F3B /* Charts.framework */,
+				31A19A5E2073D63F00CF1F3B /* RxCocoa.framework */,
+				31A19A602073D63F00CF1F3B /* RxSwift.framework */,
+				31A19A5F2073D63F00CF1F3B /* SnapKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -234,6 +226,7 @@
 				3122C0FA1FAC9DD200C111F6 /* Frameworks */,
 				3122C0FB1FAC9DD200C111F6 /* Resources */,
 				31B24557204190E0001D8ABE /* Embed Frameworks */,
+				31A19A5C20735DC200CF1F3B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -356,6 +349,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		31A19A5C20735DC200CF1F3B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/Mac/Charts.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/SnapKit.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3122C0F91FAC9DD200C111F6 /* Sources */ = {

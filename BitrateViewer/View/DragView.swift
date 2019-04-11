@@ -24,7 +24,7 @@ class DragView: NSView {
     override func draggingEntered(_ sender: NSDraggingInfo) -> NSDragOperation {
         layer?.backgroundColor = NSColor.gray.cgColor
 
-        let sourceOperationMask = sender.draggingSourceOperationMask()
+        let sourceOperationMask = sender.draggingSourceOperationMask
         return sourceOperationMask.contains(.generic) ? .generic : []
     }
 
@@ -33,7 +33,7 @@ class DragView: NSView {
     }
 
     override func performDragOperation(_ sender: NSDraggingInfo) -> Bool {
-        let pasteboard = sender.draggingPasteboard()
+        let pasteboard = sender.draggingPasteboard
 
         if pasteboard.types!.contains(.fileURL) {
             let files = pasteboard.readObjects(forClasses: [NSURL.self]) as! [URL]

@@ -14,7 +14,7 @@ import RxSwift
 import SnapKit
 
 class MainViewController: NSViewController {
-    private var infoDataSource: [Any?] = [
+    private var infoDataSource: [String?] = [
         "Info", nil,
         "Duration:", "Duration Info",
         "Min Bitrate:", "Min Bitrate Info",
@@ -23,7 +23,7 @@ class MainViewController: NSViewController {
         "Width * Height:", "Width * Height Info",
         "Frames:", "Frames Info",
     ]
-    private var cursorDataSource: [Any?] = [
+    private var cursorDataSource: [String?] = [
         "Curosr", nil,
         "Time:", "Time Info",
         "Bitrate:", "Bitrate Info",

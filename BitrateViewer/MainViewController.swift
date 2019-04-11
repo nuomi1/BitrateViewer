@@ -8,12 +8,13 @@
 
 import Charts
 import Cocoa
-import CoreMedia.CMTime
+import CoreMedia
 import RxCocoa
+import RxSwift
 import SnapKit
 
 class MainViewController: NSViewController {
-    private var infoDataSource: [Any?] = [
+    private var infoDataSource: [String?] = [
         "Info", nil,
         "Duration:", "Duration Info",
         "Min Bitrate:", "Min Bitrate Info",
@@ -22,7 +23,7 @@ class MainViewController: NSViewController {
         "Width * Height:", "Width * Height Info",
         "Frames:", "Frames Info",
     ]
-    private var cursorDataSource: [Any?] = [
+    private var cursorDataSource: [String?] = [
         "Curosr", nil,
         "Time:", "Time Info",
         "Bitrate:", "Bitrate Info",
@@ -40,6 +41,8 @@ class MainViewController: NSViewController {
 
     private var videoAnalyzer = VideoAnalyzer()
 
+    private let disposeBag = DisposeBag()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -52,15 +55,15 @@ class MainViewController: NSViewController {
         view.addSubview(modeButton)
         view.addSubview(loadingSpinner)
 
-        dragView.snp.makeConstraints({
+        dragView.snp.makeConstraints {
             $0.edges.equalTo(view)
-        })
+        }
 
-        barChartView.snp.makeConstraints({
+        barChartView.snp.makeConstraints {
             $0.top.equalTo(view).offset(20)
             $0.bottom.equalTo(view).offset(-20)
             $0.left.equalTo(view).offset(20)
-        })
+        }
 
         infoTableView.snp.makeConstraints {
             $0.size.equalTo(infoTableView.bounds.size)
@@ -80,10 +83,10 @@ class MainViewController: NSViewController {
             $0.right.equalTo(cursorTableView)
         }
 
-        loadingSpinner.snp.makeConstraints({
+        loadingSpinner.snp.makeConstraints {
             $0.size.equalTo(NSSize(width: 32, height: 32))
             $0.center.equalTo(view)
-        })
+        }
     }
 
     private func setUpViews() {
@@ -95,7 +98,7 @@ class MainViewController: NSViewController {
 
         infoTableView.dataSource = self
         infoTableView.delegate = self
-        infoTableView.addTableColumn(NSTableColumn(identifier: (NSUserInterfaceItemIdentifier(kInfo + "." + kLabel))))
+        infoTableView.addTableColumn(NSTableColumn(identifier: NSUserInterfaceItemIdentifier(kInfo + "." + kLabel)))
         infoTableView.addTableColumn(NSTableColumn(identifier: NSUserInterfaceItemIdentifier(kInfo + "." + kInfo)))
 
         cursorTableView.dataSource = self
@@ -108,20 +111,23 @@ class MainViewController: NSViewController {
         modeButton.item(withTitle: kGOP)?.keyEquivalent = "g"
         modeButton.item(withTitle: kFrame)?.keyEquivalent = "f"
         modeButton.selectItem(withTitle: kFrame)
-        _ = modeButton.rx.tap.bind {
-            if let title = self.modeButton.selectedItem?.title {
-                switch title {
-                case kSecond:
-                    self.videoAnalyzer.change(to: .second(CMTime(value: 1, timescale: 1)))
-                case kGOP:
-                    self.videoAnalyzer.change(to: .gop)
-                default:
-                    self.videoAnalyzer.change(to: .frame)
-                }
 
-                self.updateUI()
+        modeButton.rx.tap
+            .bind {
+                if let title = self.modeButton.selectedItem?.title {
+                    switch title {
+                    case kSecond:
+                        self.videoAnalyzer.change(to: .second(CMTime(value: 1, timescale: 1)))
+                    case kGOP:
+                        self.videoAnalyzer.change(to: .gop)
+                    default:
+                        self.videoAnalyzer.change(to: .frame)
+                    }
+
+                    self.updateUI()
+                }
             }
-        }
+            .disposed(by: disposeBag)
 
         loadingSpinner.style = .spinning
 
@@ -162,8 +168,8 @@ class MainViewController: NSViewController {
         barChartView.highlightValue(x: firstDataEntry.x, y: firstDataEntry.y, dataSetIndex: 0)
 
         infoDataSource[3] = "\(videoAnalyzer.duration)"
-        infoDataSource[5] = "\(videoAnalyzer.maxBitrate) kbps"
-        infoDataSource[7] = "\(videoAnalyzer.minBitrate) kbps"
+        infoDataSource[5] = "\(videoAnalyzer.minBitrate) kbps"
+        infoDataSource[7] = "\(videoAnalyzer.maxBitrate) kbps"
         infoDataSource[9] = "\(videoAnalyzer.avgBitrate) kbps"
         infoDataSource[11] = "\(videoAnalyzer.width) * \(videoAnalyzer.height)"
         infoDataSource[13] = "\(videoAnalyzer.count)"
@@ -187,7 +193,7 @@ class MainViewController: NSViewController {
 }
 
 extension MainViewController: ChartViewDelegate {
-    func chartValueSelected(_: ChartViewBase, entry _: ChartDataEntry, highlight: Highlight) {
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         let index = Int(highlight.x)
 
         cursorDataSource[3] = "\(CMTime(value: videoAnalyzer.samples[index].timeStamp, timescale: videoAnalyzer.timeScale))"
@@ -206,14 +212,14 @@ extension MainViewController: DragViewDelegate {
 
 extension MainViewController: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
-        if tableView == infoTableView {
+        switch tableView {
+        case infoTableView:
             return infoDataSource.count / 2
-        }
-        if tableView == cursorTableView {
+        case cursorTableView:
             return cursorDataSource.count / 2
+        default:
+            return 0
         }
-
-        return 0
     }
 
     func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
@@ -221,17 +227,20 @@ extension MainViewController: NSTableViewDataSource {
             return nil
         }
 
-        var value: Any?
         let isLabel = identifier.rawValue.split(separator: ".").contains(Substring(kLabel))
 
-        if tableView == infoTableView {
-            value = isLabel ? infoDataSource[2 * row] : infoDataSource[2 * row + 1]
+        switch (tableView, isLabel) {
+        case (infoTableView, true):
+            return infoDataSource[2 * row]
+        case (infoTableView, false):
+            return infoDataSource[2 * row + 1]
+        case (cursorTableView, true):
+            return cursorDataSource[2 * row]
+        case (cursorTableView, false):
+            return cursorDataSource[2 * row + 1]
+        default:
+            return nil
         }
-        if tableView == cursorTableView {
-            value = isLabel ? cursorDataSource[2 * row] : cursorDataSource[2 * row + 1]
-        }
-
-        return value
     }
 }
 
@@ -241,15 +250,18 @@ extension MainViewController: NSTableViewDelegate {
             return nil
         }
 
-        var view = tableView.makeView(withIdentifier: identifier, owner: self)
+        let isTitle = row == 0
         let isLabel = identifier.rawValue.split(separator: ".").contains(Substring(kLabel))
 
-        if row == 0 {
-            view = isLabel ? NSTextField.cTiTle : nil
-        } else {
-            view = isLabel ? NSTextField.cLabel : NSTextField.cInfo
+        switch (isTitle, isLabel) {
+        case (true, true):
+            return NSTextField.cTiTle
+        case (true, false):
+            return nil
+        case (false, true):
+            return NSTextField.cLabel
+        case (false, false):
+            return NSTextField.cInfo
         }
-
-        return view
     }
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2018年 nuomi1. All rights reserved.
 //
 
-import AppKit.NSTextField
+import AppKit
 
 extension NSTextField {
     private class var cBasic: NSTextField {

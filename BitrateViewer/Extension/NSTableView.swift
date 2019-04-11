@@ -6,7 +6,7 @@
 //  Copyright © 2018年 nuomi1. All rights reserved.
 //
 
-import AppKit.NSTableView
+import AppKit
 
 extension NSTableView {
     class var cBasic: NSTableView {

@@ -6,19 +6,21 @@
 //  Copyright © 2018年 nuomi1. All rights reserved.
 //
 
-import CoreMedia.CMTime
+import CoreMedia
 
 extension Array where Element: DurationEquatable {
     func eachSlice<S>(duration: CMTime, transfrom: (ArraySlice<Element>) -> S) -> [S] {
+        assert(!indices.isEmpty)
+
         var result = [S]()
 
         var sliceDuration = CMTimeValue(0)
         var startIndex = 0
 
-        for i in 0 ..< count {
+        for i in indices {
             sliceDuration += self[i].duration
 
-            if (sliceDuration > duration.value && i > 0) || i == (count - 1) {
+            if (sliceDuration > duration.value && i > indices.first!) || i == indices.last! {
                 result.append(transfrom(self[startIndex ..< i]))
                 sliceDuration = self[i].duration
                 startIndex = i
@@ -31,15 +33,17 @@ extension Array where Element: DurationEquatable {
 
 extension Array where Element: TypeEquatable & DurationEquatable {
     func eachSlice<S>(transfrom: (ArraySlice<Element>) -> S) -> [S] {
+        assert(!indices.isEmpty)
+
         var result = [S]()
 
         var sliceDuration = CMTimeValue(0)
         var startIndex = 0
 
-        for i in 0 ..< count {
+        for i in indices {
             sliceDuration += self[i].duration
 
-            if (self[i].type == .I && i > 0) || i == (count - 1) {
+            if (self[i].type == .I && i > indices.first!) || i == indices.last! {
                 result.append(transfrom(self[startIndex ..< i]))
                 sliceDuration = self[i].duration
                 startIndex = i

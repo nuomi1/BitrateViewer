@@ -6,7 +6,7 @@
 //  Copyright © 2018年 nuomi1. All rights reserved.
 //
 
-import CoreMedia.CMTime
+import CoreMedia
 
 protocol DurationEquatable {
     var duration: CMTimeValue { get }
@@ -77,12 +77,5 @@ extension Sample {
 extension Sample: Comparable {
     static func < (lhs: Sample, rhs: Sample) -> Bool {
         return lhs.size < rhs.size
-    }
-
-    static func == (lhs: Sample, rhs: Sample) -> Bool {
-        return lhs.timeStamp == rhs.timeStamp
-            && lhs.duration == rhs.duration
-            && lhs.size == rhs.size
-            && lhs.type == rhs.type
     }
 }

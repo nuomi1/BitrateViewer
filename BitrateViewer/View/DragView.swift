@@ -6,7 +6,7 @@
 //  Copyright © 2018年 nuomi1. All rights reserved.
 //
 
-import AppKit.NSView
+import AppKit
 
 protocol DragViewDelegate {
     func dragged(with file: URL)
@@ -24,16 +24,16 @@ class DragView: NSView {
     override func draggingEntered(_ sender: NSDraggingInfo) -> NSDragOperation {
         layer?.backgroundColor = NSColor.gray.cgColor
 
-        let sourceOperationMask = sender.draggingSourceOperationMask()
+        let sourceOperationMask = sender.draggingSourceOperationMask
         return sourceOperationMask.contains(.generic) ? .generic : []
     }
 
-    override func draggingEnded(_: NSDraggingInfo) {
+    override func draggingEnded(_ sender: NSDraggingInfo) {
         layer?.backgroundColor = NSColor.clear.cgColor
     }
 
     override func performDragOperation(_ sender: NSDraggingInfo) -> Bool {
-        let pasteboard = sender.draggingPasteboard()
+        let pasteboard = sender.draggingPasteboard
 
         if pasteboard.types!.contains(.fileURL) {
             let files = pasteboard.readObjects(forClasses: [NSURL.self]) as! [URL]

@@ -212,14 +212,14 @@ extension MainViewController: DragViewDelegate {
 
 extension MainViewController: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
-        if tableView == infoTableView {
+        switch tableView {
+        case infoTableView:
             return infoDataSource.count / 2
-        }
-        if tableView == cursorTableView {
+        case cursorTableView:
             return cursorDataSource.count / 2
+        default:
+            return 0
         }
-
-        return 0
     }
 
     func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
@@ -227,17 +227,20 @@ extension MainViewController: NSTableViewDataSource {
             return nil
         }
 
-        var value: Any?
         let isLabel = identifier.rawValue.split(separator: ".").contains(Substring(kLabel))
 
-        if tableView == infoTableView {
-            value = isLabel ? infoDataSource[2 * row] : infoDataSource[2 * row + 1]
+        switch (tableView, isLabel) {
+        case (infoTableView, true):
+            return infoDataSource[2 * row]
+        case (infoTableView, false):
+            return infoDataSource[2 * row + 1]
+        case (cursorTableView, true):
+            return cursorDataSource[2 * row]
+        case (cursorTableView, false):
+            return cursorDataSource[2 * row + 1]
+        default:
+            return nil
         }
-        if tableView == cursorTableView {
-            value = isLabel ? cursorDataSource[2 * row] : cursorDataSource[2 * row + 1]
-        }
-
-        return value
     }
 }
 
@@ -247,15 +250,18 @@ extension MainViewController: NSTableViewDelegate {
             return nil
         }
 
-        var view = tableView.makeView(withIdentifier: identifier, owner: self)
+        let isTitle = row == 0
         let isLabel = identifier.rawValue.split(separator: ".").contains(Substring(kLabel))
 
-        if row == 0 {
-            view = isLabel ? NSTextField.cTiTle : nil
-        } else {
-            view = isLabel ? NSTextField.cLabel : NSTextField.cInfo
+        switch (isTitle, isLabel) {
+        case (true, true):
+            return NSTextField.cTiTle
+        case (true, false):
+            return nil
+        case (false, true):
+            return NSTextField.cLabel
+        case (false, false):
+            return NSTextField.cInfo
         }
-
-        return view
     }
 }

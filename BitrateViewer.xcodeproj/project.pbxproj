@@ -18,15 +18,12 @@
 		312B9FA61FB5821900B3A303 /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312B9FA51FB5821900B3A303 /* Stream.swift */; };
 		313F6D8420304CC3006B2DAF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3122C1021FAC9DD200C111F6 /* MainViewController.swift */; };
 		317D8F21203068C3004EE416 /* DragView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317D8F20203068C3004EE416 /* DragView.swift */; };
-		31A19A612073D63F00CF1F3B /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A19A5D2073D63F00CF1F3B /* Charts.framework */; };
-		31A19A622073D63F00CF1F3B /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A19A5E2073D63F00CF1F3B /* RxCocoa.framework */; };
-		31A19A632073D63F00CF1F3B /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A19A5F2073D63F00CF1F3B /* SnapKit.framework */; };
-		31A19A642073D63F00CF1F3B /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A19A602073D63F00CF1F3B /* RxSwift.framework */; };
 		31B2453420418E9D001D8ABE /* NSTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B2453020418E9D001D8ABE /* NSTableView.swift */; };
 		31B2453520418E9D001D8ABE /* Float64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B2453120418E9D001D8ABE /* Float64.swift */; };
 		31B2453620418E9D001D8ABE /* CMTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B2453220418E9D001D8ABE /* CMTime.swift */; };
 		31B2453720418E9D001D8ABE /* NSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B2453320418E9D001D8ABE /* NSTextField.swift */; };
 		31B2456120419566001D8ABE /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B2456020419566001D8ABE /* Array.swift */; };
+		C2AB28DF4A86913ECBF6A22C /* Pods_BitrateViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F60566E8B5B270DD367E9E6E /* Pods_BitrateViewer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +84,9 @@
 		31B2453220418E9D001D8ABE /* CMTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CMTime.swift; sourceTree = "<group>"; };
 		31B2453320418E9D001D8ABE /* NSTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSTextField.swift; sourceTree = "<group>"; };
 		31B2456020419566001D8ABE /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		91D1E203FCA34BD0F5547A79 /* Pods-BitrateViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitrateViewer.release.xcconfig"; path = "Target Support Files/Pods-BitrateViewer/Pods-BitrateViewer.release.xcconfig"; sourceTree = "<group>"; };
+		D44A20F72A854DE5925A340C /* Pods-BitrateViewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitrateViewer.debug.xcconfig"; path = "Target Support Files/Pods-BitrateViewer/Pods-BitrateViewer.debug.xcconfig"; sourceTree = "<group>"; };
+		F60566E8B5B270DD367E9E6E /* Pods_BitrateViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BitrateViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,10 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31A19A612073D63F00CF1F3B /* Charts.framework in Frameworks */,
-				31A19A622073D63F00CF1F3B /* RxCocoa.framework in Frameworks */,
-				31A19A642073D63F00CF1F3B /* RxSwift.framework in Frameworks */,
-				31A19A632073D63F00CF1F3B /* SnapKit.framework in Frameworks */,
+				C2AB28DF4A86913ECBF6A22C /* Pods_BitrateViewer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +123,7 @@
 				3122C11D1FAC9DD200C111F6 /* BitrateViewerUITests */,
 				31649646202454780025ECF6 /* Frameworks */,
 				3122C0FE1FAC9DD200C111F6 /* Products */,
+				EC53C95C67BB71B1E3BDDCD1 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -181,6 +179,7 @@
 				31A19A5E2073D63F00CF1F3B /* RxCocoa.framework */,
 				31A19A602073D63F00CF1F3B /* RxSwift.framework */,
 				31A19A5F2073D63F00CF1F3B /* SnapKit.framework */,
+				F60566E8B5B270DD367E9E6E /* Pods_BitrateViewer.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -215,6 +214,15 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		EC53C95C67BB71B1E3BDDCD1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D44A20F72A854DE5925A340C /* Pods-BitrateViewer.debug.xcconfig */,
+				91D1E203FCA34BD0F5547A79 /* Pods-BitrateViewer.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -222,11 +230,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3122C1231FAC9DD200C111F6 /* Build configuration list for PBXNativeTarget "BitrateViewer" */;
 			buildPhases = (
+				DBD0C998D9C2CE97BEFD8795 /* [CP] Check Pods Manifest.lock */,
 				3122C0F91FAC9DD200C111F6 /* Sources */,
 				3122C0FA1FAC9DD200C111F6 /* Frameworks */,
 				3122C0FB1FAC9DD200C111F6 /* Resources */,
 				31B24557204190E0001D8ABE /* Embed Frameworks */,
-				31A19A5C20735DC200CF1F3B /* ShellScript */,
+				FA05D3894D62F5DDA6B585D7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -351,22 +360,55 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		31A19A5C20735DC200CF1F3B /* ShellScript */ = {
+		DBD0C998D9C2CE97BEFD8795 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputFileListPaths = (
+			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/Mac/Charts.framework",
-				"$(SRCROOT)/Carthage/Build/Mac/RxCocoa.framework",
-				"$(SRCROOT)/Carthage/Build/Mac/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/Mac/SnapKit.framework",
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
 			);
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BitrateViewer-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "carthage copy-frameworks";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA05D3894D62F5DDA6B585D7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BitrateViewer/Pods-BitrateViewer-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BitrateViewer/Pods-BitrateViewer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -546,39 +588,39 @@
 		};
 		3122C1241FAC9DD200C111F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D44A20F72A854DE5925A340C /* Pods-BitrateViewer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 975KA7D567;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = BitrateViewer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.nuomi1.BitrateViewer;
 				PRODUCT_NAME = BitrateViewer;
-				SWIFT_VERSION = 4.0;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		3122C1251FAC9DD200C111F6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91D1E203FCA34BD0F5547A79 /* Pods-BitrateViewer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 975KA7D567;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = BitrateViewer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.nuomi1.BitrateViewer;
 				PRODUCT_NAME = BitrateViewer;
-				SWIFT_VERSION = 4.0;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

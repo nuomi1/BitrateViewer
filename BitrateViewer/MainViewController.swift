@@ -168,8 +168,8 @@ class MainViewController: NSViewController {
         barChartView.highlightValue(x: firstDataEntry.x, y: firstDataEntry.y, dataSetIndex: 0)
 
         infoDataSource[3] = "\(videoAnalyzer.duration)"
-        infoDataSource[5] = "\(videoAnalyzer.maxBitrate) kbps"
-        infoDataSource[7] = "\(videoAnalyzer.minBitrate) kbps"
+        infoDataSource[5] = "\(videoAnalyzer.minBitrate) kbps"
+        infoDataSource[7] = "\(videoAnalyzer.maxBitrate) kbps"
         infoDataSource[9] = "\(videoAnalyzer.avgBitrate) kbps"
         infoDataSource[11] = "\(videoAnalyzer.width) * \(videoAnalyzer.height)"
         infoDataSource[13] = "\(videoAnalyzer.count)"

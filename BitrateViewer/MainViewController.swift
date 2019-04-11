@@ -41,6 +41,8 @@ class MainViewController: NSViewController {
 
     private var videoAnalyzer = VideoAnalyzer()
 
+    private let disposeBag = DisposeBag()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -109,20 +111,23 @@ class MainViewController: NSViewController {
         modeButton.item(withTitle: kGOP)?.keyEquivalent = "g"
         modeButton.item(withTitle: kFrame)?.keyEquivalent = "f"
         modeButton.selectItem(withTitle: kFrame)
-        _ = modeButton.rx.tap.bind {
-            if let title = self.modeButton.selectedItem?.title {
-                switch title {
-                case kSecond:
-                    self.videoAnalyzer.change(to: .second(CMTime(value: 1, timescale: 1)))
-                case kGOP:
-                    self.videoAnalyzer.change(to: .gop)
-                default:
-                    self.videoAnalyzer.change(to: .frame)
-                }
 
-                self.updateUI()
+        modeButton.rx.tap
+            .bind {
+                if let title = self.modeButton.selectedItem?.title {
+                    switch title {
+                    case kSecond:
+                        self.videoAnalyzer.change(to: .second(CMTime(value: 1, timescale: 1)))
+                    case kGOP:
+                        self.videoAnalyzer.change(to: .gop)
+                    default:
+                        self.videoAnalyzer.change(to: .frame)
+                    }
+
+                    self.updateUI()
+                }
             }
-        }
+            .disposed(by: disposeBag)
 
         loadingSpinner.style = .spinning
 

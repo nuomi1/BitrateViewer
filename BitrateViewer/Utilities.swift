@@ -6,7 +6,7 @@
 //  Copyright © 2018年 nuomi1. All rights reserved.
 //
 
-import AppKit.NSAlert
+import AppKit
 
 //    private func getFFprobePath() -> String? {
 //        let task = Process()

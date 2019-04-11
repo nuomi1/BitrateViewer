@@ -6,7 +6,7 @@
 //  Copyright © 2018年 nuomi1. All rights reserved.
 //
 
-import CoreMedia.CMTime
+import CoreMedia
 
 struct Stream: Decodable {
     /**

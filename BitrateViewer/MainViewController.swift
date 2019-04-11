@@ -8,8 +8,9 @@
 
 import Charts
 import Cocoa
-import CoreMedia.CMTime
+import CoreMedia
 import RxCocoa
+import RxSwift
 import SnapKit
 
 class MainViewController: NSViewController {

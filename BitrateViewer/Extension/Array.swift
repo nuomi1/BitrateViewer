@@ -6,7 +6,7 @@
 //  Copyright © 2018年 nuomi1. All rights reserved.
 //
 
-import CoreMedia.CMTime
+import CoreMedia
 
 extension Array where Element: DurationEquatable {
     func eachSlice<S>(duration: CMTime, transfrom: (ArraySlice<Element>) -> S) -> [S] {

@@ -66,7 +66,7 @@ func analyze(for file: URL) {
 
     do {
         try task.run()
-    } catch let error {
+    } catch {
         print(error)
     }
 

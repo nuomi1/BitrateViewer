@@ -55,15 +55,15 @@ class MainViewController: NSViewController {
         view.addSubview(modeButton)
         view.addSubview(loadingSpinner)
 
-        dragView.snp.makeConstraints({
+        dragView.snp.makeConstraints {
             $0.edges.equalTo(view)
-        })
+        }
 
-        barChartView.snp.makeConstraints({
+        barChartView.snp.makeConstraints {
             $0.top.equalTo(view).offset(20)
             $0.bottom.equalTo(view).offset(-20)
             $0.left.equalTo(view).offset(20)
-        })
+        }
 
         infoTableView.snp.makeConstraints {
             $0.size.equalTo(infoTableView.bounds.size)
@@ -83,10 +83,10 @@ class MainViewController: NSViewController {
             $0.right.equalTo(cursorTableView)
         }
 
-        loadingSpinner.snp.makeConstraints({
+        loadingSpinner.snp.makeConstraints {
             $0.size.equalTo(NSSize(width: 32, height: 32))
             $0.center.equalTo(view)
-        })
+        }
     }
 
     private func setUpViews() {
@@ -98,7 +98,7 @@ class MainViewController: NSViewController {
 
         infoTableView.dataSource = self
         infoTableView.delegate = self
-        infoTableView.addTableColumn(NSTableColumn(identifier: (NSUserInterfaceItemIdentifier(kInfo + "." + kLabel))))
+        infoTableView.addTableColumn(NSTableColumn(identifier: NSUserInterfaceItemIdentifier(kInfo + "." + kLabel)))
         infoTableView.addTableColumn(NSTableColumn(identifier: NSUserInterfaceItemIdentifier(kInfo + "." + kInfo)))
 
         cursorTableView.dataSource = self

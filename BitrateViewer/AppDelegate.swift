@@ -22,7 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         openPanel.begin {
             switch $0 {
             case .OK:
-                guard let file = openPanel.url, let main = NSApp.mainWindow?.contentViewController as! MainViewController? else {
+                guard let file = openPanel.url, let main = NSApp.mainWindow?.contentViewController as? MainViewController else {
                     return
                 }
 

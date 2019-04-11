@@ -188,7 +188,7 @@ class MainViewController: NSViewController {
 }
 
 extension MainViewController: ChartViewDelegate {
-    func chartValueSelected(_: ChartViewBase, entry _: ChartDataEntry, highlight: Highlight) {
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         let index = Int(highlight.x)
 
         cursorDataSource[3] = "\(CMTime(value: videoAnalyzer.samples[index].timeStamp, timescale: videoAnalyzer.timeScale))"

@@ -28,7 +28,7 @@ class DragView: NSView {
         return sourceOperationMask.contains(.generic) ? .generic : []
     }
 
-    override func draggingEnded(_: NSDraggingInfo) {
+    override func draggingEnded(_ sender: NSDraggingInfo) {
         layer?.backgroundColor = NSColor.clear.cgColor
     }
 

@@ -10,11 +10,11 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-    func applicationDidFinishLaunching(_: Notification) {
+    func applicationDidFinishLaunching(_ notification: Notification) {
         openDocument(nil)
     }
 
-    @IBAction func openDocument(_: Any?) {
+    @IBAction func openDocument(_ sender: Any?) {
         let openPanel = NSOpenPanel()
         openPanel.allowedFileTypes = supportedFileTypes
         openPanel.treatsFilePackagesAsDirectories = true // 不处理会把含有后缀名的文件夹当做文件

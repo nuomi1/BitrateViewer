@@ -11,7 +11,7 @@ import AppKit
 extension NSTableView {
     class var cBasic: NSTableView {
         let tableView = NSTableView()
-        tableView.backgroundColor = NSColor.textBackgroundColor
+        tableView.backgroundColor = .textBackgroundColor
         tableView.rowSizeStyle = .small
         tableView.isEnabled = false
         return tableView

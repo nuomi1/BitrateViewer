@@ -94,6 +94,14 @@ class MainViewController: NSViewController {
         barChartView.setScaleEnabled(false)
         barChartView.chartDescription = nil
 
+        // overwrite colors for dark mode, see
+        // https://github.com/danielgindi/Charts/pull/3766/files
+        barChartView.noDataTextColor = .labelColor
+        barChartView.leftAxis.labelTextColor = .labelColor
+        barChartView.rightAxis.labelTextColor = .labelColor
+        barChartView.legend.textColor = .labelColor
+        barChartView.xAxis.labelTextColor = .labelColor
+
         dragView.delegate = self
 
         infoTableView.dataSource = self
@@ -157,12 +165,13 @@ class MainViewController: NSViewController {
         let dataEntries = videoAnalyzer.samples.enumerated().map { BarChartDataEntry(x: Double($0.offset), y: Double($0.element.size) * videoAnalyzer.frameRate / 125) }
 
         let dataSet = BarChartDataSet(values: dataEntries, label: nil)
-        dataSet.colors = [.red]
+        dataSet.colors = [.linkColor]
 
         let data = BarChartData()
         data.addDataSet(dataSet)
 
         barChartView.data = data
+        barChartView.data?.setValueTextColor(.labelColor)
 
         let firstDataEntry = dataEntries.first!
         barChartView.highlightValue(x: firstDataEntry.x, y: firstDataEntry.y, dataSetIndex: 0)

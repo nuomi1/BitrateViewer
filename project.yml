@@ -1,0 +1,16 @@
+name: BitrateViewer
+
+attributes:
+  ORGANIZATIONNAME: nuomi1
+
+targets:
+  BitrateViewer:
+    type: application
+    platform: macOS
+    deploymentTarget: 11.0
+    sources:
+      - BitrateViewer
+    settings:
+      base:
+        CODE_SIGN_ENTITLEMENTS: ${SRCROOT}/$(PROJECT_NAME)/$(TARGET_NAME).entitlements
+        SWIFT_VERSION: 5.0

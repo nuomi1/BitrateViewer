@@ -15,12 +15,17 @@ Install _fastlane_ using
 or alternatively using `brew install fastlane`
 
 # Available Actions
-## iOS
-### ios custom_lane
+## Mac
+### mac setup_xcodegen
 ```
-fastlane ios custom_lane
+fastlane mac setup_xcodegen
 ```
-Description of what the lane does
+
+### mac setup
+```
+fastlane mac setup
+```
+
 
 ----
 

@@ -13,4 +13,5 @@ targets:
     settings:
       base:
         CODE_SIGN_ENTITLEMENTS: ${SRCROOT}/$(PROJECT_NAME)/$(TARGET_NAME).entitlements
+        PRODUCT_BUNDLE_IDENTIFIER: com.nuomi1.bitrateviewer
         SWIFT_VERSION: 5.0
